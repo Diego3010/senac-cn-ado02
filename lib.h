@@ -3,8 +3,8 @@
 
 
 double fatorial (int termos);
-double exponencial(int base, int exp);
-double seno (double rad, int termos);
+double exponencial(double base, int exp);
+double seno (double angulo);
 
 
 #endif

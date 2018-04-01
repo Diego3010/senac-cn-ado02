@@ -7,18 +7,17 @@
 
 int main (int argc, char *argv[]){
 
+        if (argc != 2){
 
-  double x, y, resultado;
+            return 1;
+        }else {
 
-    x = atoi (argv[1]);
-    y = atoi (argv[2]);
-
-resultado = exponencial (x, y);
-
-printf ("Resultado = %.lf\n", resultado);
-
-
+            double x, resultado;
+            x = atoi (argv[1]);
+            resultado = (seno(x)-1);
+            printf ("Resultado = %lf\n", resultado);
 
 
     return 0;
+        }
 }

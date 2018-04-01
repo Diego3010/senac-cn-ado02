@@ -1,9 +1,9 @@
+#define PI 3.14159
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "lib.h"
-
-#define PI = 3.14159
 
 
 //Funcao que calcula o fatorial
@@ -18,7 +18,7 @@ double fatorial (int termos){
 }
 
 //Funcao que calcula as exponenciais
-double exponencial (int base, int expoente){
+double exponencial (double base, int expoente){
 
     int resultado = 1;
     int i;
@@ -28,18 +28,32 @@ double exponencial (int base, int expoente){
     return (resultado);
 }
 
+//Funcao que aproxima o valor do seno por serie de Taylor
+double seno(double rad){
 
 
-double seno (double rad, int termos){
+        int soma = 1;
+        double expo, aux_expo, fat, sen = 1, aux_sen; 
 
-    int i;
-    double resultado = 1;
+            while (rad  > (2 * PI)){
+                rad -= 2 * PI;
+            }
 
-        for (i=0; i<termos; i++){
-            resultado += exponencial(-1, i) * exponencial(rad, 2*i + 1) / fatorial (2*i + 1);
-        }
+                for (expo = 1; expo <= 20; expo = expo + 2){
 
-        
-return (resultado);
+                    aux_expo = exponencial (rad, expo);
+                    fat = fatorial (expo);
+                    if ((soma % 2) == 1){
 
+                        sen += (aux_expo / fat);
+                    }else {
+
+                        sen -= (aux_expo / fat);
+                    }
+
+                        soma++;
+                }
+
+
+	return (sen);
 }
