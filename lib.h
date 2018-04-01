@@ -3,7 +3,7 @@
 
 
 double fatorial (int termos);
-double power(double base, int exp);
+double exponencial(int base, int exp);
 double seno (double rad, int termos);
 
 

@@ -8,15 +8,14 @@
 int main (int argc, char *argv[]){
 
 
-  double x, resultado;
-  int y;
+  double x, y, resultado;
 
     x = atoi (argv[1]);
     y = atoi (argv[2]);
 
-resultado = seno(x, y);
+resultado = exponencial (x, y);
 
-printf ("Resultado = %lf\n", resultado);
+printf ("Resultado = %.lf\n", resultado);
 
 
 

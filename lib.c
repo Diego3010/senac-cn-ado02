@@ -3,29 +3,28 @@
 
 #include "lib.h"
 
-#define PI = 3.14
+#define PI = 3.14159
 
+
+//Funcao que calcula o fatorial
 double fatorial (int termos){
 
-    double aux;
-    aux = termos;
-    while (termos > 1){
+    int fat = 1;
 
-        aux = aux * (termos - 1);
-        termos--;
+    for (fat = 1; termos > 1; termos = (termos - 1)){
+            fat *= termos; 
     }
-
-    return (aux);
+        return (fat);
 }
 
+//Funcao que calcula as exponenciais
+double exponencial (int base, int expoente){
 
-double power(double base, int exp){
-
-    double resultado = 1;
+    int resultado = 1;
     int i;
 
-    if (exp == 0) return 1;
-    for (i=0; i < exp; i++) resultado = resultado * base;
+    if (expoente == 0) return (1);
+    for (i=0; i < expoente; i++) resultado *= base;
     return (resultado);
 }
 
@@ -37,7 +36,7 @@ double seno (double rad, int termos){
     double resultado = 1;
 
         for (i=0; i<termos; i++){
-            resultado += power(-1, i) * power(rad, 2*i + 1) / fatorial (2*i + 1);
+            resultado += exponencial(-1, i) * exponencial(rad, 2*i + 1) / fatorial (2*i + 1);
         }
 
         
