@@ -1,23 +1,30 @@
 #include "lib.h"
 
+#define _POSIX_C_SOURCE 2
+
 #include <stdio.h>
 #include <stdlib.h>
 
 
 
-int main (int argc, char *argv[]){
+int main (void){
 
-        if (argc != 2){
 
-            return 1;
-        }else {
+           FILE *fp = popen("gnuplot","w");
 
-            double x, resultado;
-            x = atoi (argv[1]);
-            resultado = (seno(x)-1);
-            printf ("Resultado = %lf\n", resultado);
+            fprintf (fp, "set terminal png\n");
+            fprintf (fp, "set output \"figura.png\"\n");
 
+            fprintf(fp, "plot '-' with lines\n");
+
+                for (int i = 0; i < 30; i++){
+
+                    fprintf (fp, "%lf \n", seno(90)-1);
+                }
+            
+            fprintf (fp, "e\n");
+            pclose(fp);
 
     return 0;
-        }
+        
 }

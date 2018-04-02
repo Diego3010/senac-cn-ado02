@@ -33,7 +33,7 @@ double seno(double rad){
 
 
         int soma = 1;
-        double expo, aux_expo, fat, sen = 1, aux_sen; 
+        double expo, aux_expo, fat, sen = 1; 
 
             while (rad  > (2 * PI)){
                 rad -= 2 * PI;
